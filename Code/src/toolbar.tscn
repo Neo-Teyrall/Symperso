@@ -1,0 +1,189 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Fichier.gd" type="Script" id=1]
+[ext_resource path="res://src/Export.gd" type="Script" id=2]
+[ext_resource path="res://src/FileDialog.gd" type="Script" id=4]
+[ext_resource path="res://src/FileDialogopen.gd" type="Script" id=5]
+[ext_resource path="res://src/FileDialogExport.gd" type="Script" id=6]
+
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="Tooline" type="PanelContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tooline"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 443.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fichier" type="MenuButton" parent="Tooline/HBoxContainer"]
+margin_right = 55.0
+margin_bottom = 20.0
+text = "Fichier"
+script = ExtResource( 1 )
+
+[node name="VSeparator" type="VSeparator" parent="Tooline/HBoxContainer"]
+margin_left = 59.0
+margin_right = 63.0
+margin_bottom = 20.0
+
+[node name="Aide" type="MenuButton" parent="Tooline/HBoxContainer"]
+margin_left = 67.0
+margin_right = 108.0
+margin_bottom = 20.0
+text = "Aide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Export" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -220.5
+margin_top = -175.0
+margin_right = 220.5
+margin_bottom = 175.0
+rect_min_size = Vector2( 440, 350 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="Export"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 434.0
+margin_bottom = 343.0
+window_title = "exporter l'image"
+access = 2
+current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
+current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
+script = ExtResource( 6 )
+
+[node name="Info" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.5
+margin_top = -78.0
+margin_right = 82.5
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Info"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 158.0
+margin_bottom = 149.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Info/VBoxContainer"]
+margin_right = 151.0
+margin_bottom = 14.0
+text = "Enregistré sous un nom"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Info/VBoxContainer"]
+margin_top = 18.0
+margin_right = 151.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 0, 100 )
+text = "export F12
+
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="Info/VBoxContainer"]
+margin_top = 122.0
+margin_right = 151.0
+margin_bottom = 142.0
+
+[node name="Button" type="Button" parent="Info/VBoxContainer/CenterContainer"]
+margin_left = 46.0
+margin_right = 104.0
+margin_bottom = 20.0
+text = "Fermer"
+
+[node name="Open" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -183.0
+margin_top = -147.5
+margin_right = 137.0
+margin_bottom = 152.5
+rect_min_size = Vector2( 320, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="Open"]
+visible = true
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 313.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 200, 100 )
+popup_exclusive = true
+window_title = "Ouvrir un fichier"
+mode = 0
+access = 2
+current_dir = "/"
+current_path = "/"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -220.5
+margin_top = -150.0
+margin_right = 220.5
+margin_bottom = 150.0
+rect_min_size = Vector2( 320, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="Save"]
+visible = true
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 434.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 200, 100 )
+window_title = "Enregistrer un fichier"
+access = 2
+current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
+current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
