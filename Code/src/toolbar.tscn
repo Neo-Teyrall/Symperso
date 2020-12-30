@@ -1,46 +1,58 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Fichier.gd" type="Script" id=1]
 [ext_resource path="res://src/Export.gd" type="Script" id=2]
+[ext_resource path="res://src/Container.gd" type="Script" id=3]
 [ext_resource path="res://src/FileDialog.gd" type="Script" id=4]
 [ext_resource path="res://src/FileDialogopen.gd" type="Script" id=5]
 [ext_resource path="res://src/FileDialogExport.gd" type="Script" id=6]
 
-
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = 2
 
-[node name="Tooline" type="PanelContainer" parent="."]
-anchor_right = 1.0
-margin_bottom = 34.0
+[node name="Container" type="Container" parent="."]
+margin_right = 450.0
+margin_bottom = 17.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Tooline"]
+[node name="Tooline" type="PanelContainer" parent="Container"]
+visible = false
+anchor_right = 1.0
+margin_bottom = 35.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/Tooline"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 443.0
-margin_bottom = 27.0
+margin_bottom = 28.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fichier" type="MenuButton" parent="Tooline/HBoxContainer"]
+[node name="Fichier" type="MenuButton" parent="Container/Tooline/HBoxContainer"]
 margin_right = 55.0
-margin_bottom = 20.0
+margin_bottom = 21.0
+mouse_filter = 1
 text = "Fichier"
 script = ExtResource( 1 )
 
-[node name="VSeparator" type="VSeparator" parent="Tooline/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Container/Tooline/HBoxContainer"]
 margin_left = 59.0
 margin_right = 63.0
-margin_bottom = 20.0
+margin_bottom = 21.0
+mouse_filter = 1
 
-[node name="Aide" type="MenuButton" parent="Tooline/HBoxContainer"]
+[node name="Aide" type="MenuButton" parent="Container/Tooline/HBoxContainer"]
 margin_left = 67.0
 margin_right = 108.0
-margin_bottom = 20.0
+margin_bottom = 21.0
+mouse_filter = 1
 text = "Aide"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -187,3 +199,6 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="mouse_entered" from="Container" to="Container" method="_on_Container_mouse_entered"]
+[connection signal="mouse_exited" from="Container" to="Container" method="_on_Container_mouse_exited"]
+[connection signal="pressed" from="Container/Tooline/HBoxContainer/Fichier" to="Container/Tooline/HBoxContainer/Fichier" method="_on_Fichier_pressed"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://font/global-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/Info-paragraphe/info-paragraphe.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.909804, 0.890196, 0.839216, 1 )
 
-[sub_resource type="StyleBoxLine" id=4]
+[sub_resource type="StyleBoxLine" id=2]
 grow_begin = 0.0
 grow_end = 0.0
 thickness = 0
@@ -15,7 +16,7 @@ vertical = true
 
 [node name="PanelContainer2" type="PanelContainer"]
 margin_right = 239.0
-margin_bottom = 55.0
+margin_bottom = 38.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -24,7 +25,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 239.0
-margin_bottom = 55.0
+margin_bottom = 38.0
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer"]
@@ -36,18 +37,23 @@ text = "Label"
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 margin_top = 18.0
 margin_right = 239.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 0, 37 )
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="TextEdit" type="TextEdit" parent="HBoxContainer/PanelContainer"]
 margin_right = 239.0
-margin_bottom = 37.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
 custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/selection_color = Color( 0.729412, 0.729412, 0.729412, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "entré..."
+text = "Entré..."
+wrap_enabled = true
 caret_blink = true
 [connection signal="focus_entered" from="HBoxContainer/PanelContainer/TextEdit" to="." method="_on_TextEdit_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/PanelContainer/TextEdit" to="." method="_on_TextEdit_focus_exited"]
 [connection signal="text_changed" from="HBoxContainer/PanelContainer/TextEdit" to="." method="_on_TextEdit_text_changed"]

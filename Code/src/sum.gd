@@ -1,4 +1,4 @@
-extends LineEdit
+extends Label
 
 
 # Declare member variables here. Examples:

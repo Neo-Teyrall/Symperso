@@ -30,6 +30,10 @@ window/size/width=450
 window/size/height=945
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
 [input]
 
 capture={

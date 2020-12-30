@@ -7,8 +7,9 @@ extends Node
 
 
 # Called when the node enters the scene tree for the first time.
-onready var VBox = get_node("PanelContainer/HBox/VBox")
+onready var VBox = get_node("Global/Panel/H/V")
 func _ready() -> void:
+
     pass # Replace with function body.
 var filepath = ""
 func _input(event: InputEvent) -> void:
@@ -32,6 +33,7 @@ func _on_Timer_timeout() -> void:
     get_node("interface/Tooline").visible = true
     $Timer.stop()
     pass # Replace with function body.
+    
 func _save(file_path): 
     print(file_path)
     var str_save = ""
@@ -39,14 +41,14 @@ func _save(file_path):
     str_save += "\t;\n" + VBox.get_node("Race/HBox/entree").text
     str_save += "\t;\n" + VBox.get_node("Résistance/HBox/entree").text
     str_save += "\t;\n" + VBox.get_node("Traits/HBoxContainer/PanelContainer/TextEdit").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Ag-As-Di/Agi/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Ag-As-Di/Ast/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Ag-As-Di/Dis/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Fo-Pe-Pr/For/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Fo-Pe-Pr/Per/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Fo-Pe-Pr/Pre/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Vi-Vo-Sum/Vig/value").text
-    str_save += "\t;\n" + VBox.get_node("Charac/Vi-Vo-Sum/Vol/value").text
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Ag-As-Di/Agi").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Ag-As-Di/Ast").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Ag-As-Di/Dis").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Fo-Pe-Pr/For").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Fo-Pe-Pr/Per").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Fo-Pe-Pr/Pre").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Vi-Vo-Sum/Vig").value)
+    str_save += "\t;\n" + str(VBox.get_node("Charac/Vi-Vo-Sum/Vol").value)
     str_save += "\t;\n" + VBox.get_node("Talents/HBoxContainer/PanelContainer/TextEdit").text
     str_save += "\t;\n" + VBox.get_node("Armes/HBoxContainer/PanelContainer/TextEdit").text
     str_save += "\t;\n" + VBox.get_node("Armures/HBoxContainer/PanelContainer/TextEdit").text
@@ -71,14 +73,14 @@ func _load(file_path):
     VBox.get_node("Race/HBox/entree").text = splited[1]
     VBox.get_node("Résistance/HBox/entree").text = splited[2]
     VBox.get_node("Traits/HBoxContainer/PanelContainer/TextEdit").text = splited[3]
-    VBox.get_node("Charac/Ag-As-Di/Agi/value").text = splited[4]
-    VBox.get_node("Charac/Ag-As-Di/Ast/value").text = splited[5]
-    VBox.get_node("Charac/Ag-As-Di/Dis/value").text = splited[6]
-    VBox.get_node("Charac/Fo-Pe-Pr/For/value").text = splited[7]
-    VBox.get_node("Charac/Fo-Pe-Pr/Per/value").text = splited[8]
-    VBox.get_node("Charac/Fo-Pe-Pr/Pre/value").text = splited[9]
-    VBox.get_node("Charac/Vi-Vo-Sum/Vig/value").text = splited[10]
-    VBox.get_node("Charac/Vi-Vo-Sum/Vol/value").text = splited[11]
+    VBox.get_node("Charac/Ag-As-Di/Agi").value = int(splited[4])
+    VBox.get_node("Charac/Ag-As-Di/Ast").value = int(splited[5])
+    VBox.get_node("Charac/Ag-As-Di/Dis").value = int(splited[6])
+    VBox.get_node("Charac/Fo-Pe-Pr/For").value = int(splited[7])
+    VBox.get_node("Charac/Fo-Pe-Pr/Per").value = int(splited[8])
+    VBox.get_node("Charac/Fo-Pe-Pr/Pre").value = int(splited[9])
+    VBox.get_node("Charac/Vi-Vo-Sum/Vig").value = int(splited[10])
+    VBox.get_node("Charac/Vi-Vo-Sum/Vol").value = int(splited[11])
     VBox.get_node("Talents/HBoxContainer/PanelContainer/TextEdit").text = splited[12]
     VBox.get_node("Armes/HBoxContainer/PanelContainer/TextEdit").text = splited[13]
     VBox.get_node("Armures/HBoxContainer/PanelContainer/TextEdit").text = splited[14]
