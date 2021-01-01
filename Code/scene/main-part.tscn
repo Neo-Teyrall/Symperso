@@ -79,168 +79,184 @@ label = "Race : "
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
 margin_top = 76.0
 margin_right = 392.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 78.0
+rect_min_size = Vector2( 0, 2 )
 
-[node name="Résistance" parent="Panel/H/V" instance=ExtResource( 4 )]
+[node name="Resistance" parent="Panel/H/V" instance=ExtResource( 4 )]
 modulate = Color( 1, 0.950521, 0.851562, 1 )
-margin_top = 77.0
+margin_top = 78.0
 margin_right = 392.0
-margin_bottom = 95.0
+margin_bottom = 96.0
 custom_styles/panel = SubResource( 1 )
 label = "Résistance : "
 
 [node name="Sep2" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 95.0
-margin_right = 392.0
-margin_bottom = 96.0
-rect_min_size = Vector2( 0, 1 )
-
-[node name="Traits" parent="Panel/H/V" instance=ExtResource( 6 )]
 margin_top = 96.0
 margin_right = 392.0
-margin_bottom = 134.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 2 )
+
+[node name="Traits" parent="Panel/H/V" instance=ExtResource( 6 )]
+margin_top = 98.0
+margin_right = 392.0
+margin_bottom = 145.0
 custom_styles/panel = SubResource( 2 )
 label = "Traits : "
 
 [node name="Sep3" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 134.0
+margin_top = 145.0
 margin_right = 392.0
-margin_bottom = 135.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 147.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Charac" parent="Panel/H/V" instance=ExtResource( 5 )]
+margin_top = 147.0
+margin_bottom = 245.0
 
 [node name="Sep4" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 233.0
+margin_top = 245.0
 margin_right = 392.0
-margin_bottom = 234.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 247.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Talents" parent="Panel/H/V" instance=ExtResource( 6 )]
-margin_top = 234.0
+margin_top = 247.0
 margin_right = 392.0
-margin_bottom = 272.0
+margin_bottom = 294.0
 custom_styles/panel = SubResource( 2 )
 label = "Talents : "
 
 [node name="Sep5" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 272.0
+margin_top = 294.0
 margin_right = 392.0
-margin_bottom = 273.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 296.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Armes" parent="Panel/H/V" instance=ExtResource( 6 )]
 modulate = Color( 1, 0.950521, 0.851562, 1 )
-margin_top = 273.0
+margin_top = 296.0
 margin_right = 392.0
-margin_bottom = 311.0
+margin_bottom = 343.0
 custom_styles/panel = SubResource( 2 )
 label = "Armes : "
 
 [node name="Sep6" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 311.0
+margin_top = 343.0
 margin_right = 392.0
-margin_bottom = 312.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 345.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Armures" parent="Panel/H/V" instance=ExtResource( 6 )]
-margin_top = 312.0
+margin_top = 345.0
 margin_right = 392.0
-margin_bottom = 350.0
+margin_bottom = 392.0
 custom_styles/panel = SubResource( 2 )
 label = "Armures : "
 
 [node name="Sep7" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 350.0
+margin_top = 392.0
 margin_right = 392.0
-margin_bottom = 351.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 394.0
+rect_min_size = Vector2( 0, 2 )
 
-[node name="Défence" parent="Panel/H/V" instance=ExtResource( 6 )]
+[node name="Defence" parent="Panel/H/V" instance=ExtResource( 6 )]
 modulate = Color( 1, 0.950521, 0.851562, 1 )
-margin_top = 351.0
+margin_top = 394.0
 margin_right = 392.0
-margin_bottom = 389.0
+margin_bottom = 441.0
 custom_styles/panel = SubResource( 2 )
 label = "Défense : "
 
 [node name="Sep8" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 389.0
+margin_top = 441.0
 margin_right = 392.0
-margin_bottom = 390.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 443.0
+rect_min_size = Vector2( 0, 2 )
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/H/V"]
-margin_top = 390.0
+[node name="H" type="HBoxContainer" parent="Panel/H/V"]
+margin_top = 443.0
 margin_right = 392.0
-margin_bottom = 408.0
+margin_bottom = 461.0
 
-[node name="Endurence" parent="Panel/H/V/HBoxContainer2" instance=ExtResource( 4 )]
+[node name="Endurence" parent="Panel/H/V/H" instance=ExtResource( 4 )]
 margin_top = 0.0
-margin_right = 130.0
+margin_right = 134.0
 margin_bottom = 18.0
 custom_styles/panel = SubResource( 1 )
 label = "Endurance : "
 
-[node name="Resis_Douleur" parent="Panel/H/V/HBoxContainer2" instance=ExtResource( 4 )]
-margin_left = 134.0
+[node name="Resis_Douleur" parent="Panel/H/V/H" instance=ExtResource( 4 )]
+margin_left = 138.0
 margin_top = 0.0
-margin_right = 295.0
+margin_right = 302.0
 margin_bottom = 18.0
 custom_styles/panel = SubResource( 1 )
 label = ", Resis.Douleur : "
 
 [node name="Sep9" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 408.0
+margin_top = 461.0
 margin_right = 392.0
-margin_bottom = 409.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 463.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Equipement" parent="Panel/H/V" instance=ExtResource( 6 )]
 modulate = Color( 1, 0.950521, 0.851562, 1 )
-margin_top = 409.0
+margin_top = 463.0
 margin_right = 392.0
-margin_bottom = 447.0
+margin_bottom = 510.0
 custom_styles/panel = SubResource( 2 )
 label = "Equipement"
 
 [node name="Sep10" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 447.0
+margin_top = 510.0
 margin_right = 392.0
-margin_bottom = 448.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 512.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Ombre" parent="Panel/H/V" instance=ExtResource( 6 )]
-margin_top = 448.0
+margin_top = 512.0
 margin_right = 392.0
-margin_bottom = 486.0
+margin_bottom = 559.0
 custom_styles/panel = SubResource( 2 )
 label = "Ombre"
 
 [node name="Sep11" type="PanelContainer" parent="Panel/H/V"]
 modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
-margin_top = 486.0
+margin_top = 559.0
 margin_right = 392.0
-margin_bottom = 487.0
-rect_min_size = Vector2( 0, 1 )
+margin_bottom = 561.0
+rect_min_size = Vector2( 0, 2 )
 
 [node name="Tactiques" parent="Panel/H/V" instance=ExtResource( 6 )]
 modulate = Color( 1, 0.950521, 0.851562, 1 )
-margin_top = 487.0
+margin_top = 561.0
 margin_right = 392.0
-margin_bottom = 525.0
+margin_bottom = 608.0
 custom_styles/panel = SubResource( 2 )
 label = "Tactiques"
+
+[node name="Sep12" type="PanelContainer" parent="Panel/H/V"]
+modulate = Color( 0.231373, 0.219608, 0.203922, 1 )
+margin_top = 608.0
+margin_right = 392.0
+margin_bottom = 610.0
+rect_min_size = Vector2( 0, 2 )
+
+[node name="bot_space" type="PanelContainer" parent="Panel/H/V"]
+modulate = Color( 0.078125, 0.0646973, 0.0646973, 0 )
+margin_top = 610.0
+margin_right = 392.0
+margin_bottom = 625.0
+rect_min_size = Vector2( 0, 15 )
 
 [node name="right_space" type="PanelContainer" parent="Panel/H"]
 margin_left = 425.0

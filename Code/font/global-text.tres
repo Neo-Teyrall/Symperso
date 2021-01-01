@@ -3,5 +3,11 @@
 [ext_resource path="res://font/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 12
+size = 15
+outline_size = 1
+outline_color = Color( 0.564706, 0.552941, 0.541176, 0.745098 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -2
+extra_spacing_bottom = -1
 font_data = ExtResource( 1 )

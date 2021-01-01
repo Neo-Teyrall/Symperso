@@ -11,24 +11,25 @@ func _ready() -> void:
 
 
 func _action(id):
-    var filename = get_node("/root/Node/PanelContainer/HBox/VBox/Nom/HBox/entree").text
+    var filename = get_node(all_info.main_node).Nom.get_text()
     filename = filename.replace(" ","-")
     if id == 1:
-        get_node("../../../..//Export/FileDialog").current_file = (filename + ".png")
-        get_node("../../../..//Export/FileDialog").popup()
+        get_node(all_info.main_node).Export.current_file = (filename + ".png")
+        get_node(all_info.main_node).Export.popup()
         get_parent().get_parent().visible = false
         _end_id_selected()
     if id == 2 :
         filename = filename + ".symperso"
-        get_node("../../../../Save/FileDialog").current_file = filename
-        get_node("../../../../Save/FileDialog").popup()
+        get_node(all_info.main_node).Save.current_file = filename
+        get_node(all_info.main_node).Save.popup()
         _end_id_selected()
     if id == 3 : 
-        get_node("../../../../Open/FileDialog").popup()
+        get_node(all_info.main_node).Load.popup()
         _end_id_selected()
     if id == 4: 
         _end_id_selected()
         get_tree().quit()
+
 
 func _end_id_selected():
     get_parent().get_parent().visible = false
@@ -43,4 +44,3 @@ func _on_Fichier_pressed() -> void:
 func popup_mouse_exit():
     get_node("../../../").lock1 = false
     get_node("../../").visible = false
-    #get_popup().visible = false

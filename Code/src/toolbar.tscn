@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Fichier.gd" type="Script" id=1]
-[ext_resource path="res://src/Export.gd" type="Script" id=2]
 [ext_resource path="res://src/Container.gd" type="Script" id=3]
 [ext_resource path="res://src/FileDialog.gd" type="Script" id=4]
 [ext_resource path="res://src/FileDialogopen.gd" type="Script" id=5]
@@ -10,15 +9,15 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Container" type="Container" parent="."]
-margin_right = 450.0
-margin_bottom = 17.0
+anchor_right = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 15.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Tooline" type="PanelContainer" parent="Container"]
-visible = false
 anchor_right = 1.0
 margin_bottom = 35.0
 mouse_filter = 2
@@ -57,33 +56,6 @@ text = "Aide"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Export" type="PanelContainer" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -220.5
-margin_top = -175.0
-margin_right = 220.5
-margin_bottom = 175.0
-rect_min_size = Vector2( 440, 350 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FileDialog" type="FileDialog" parent="Export"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 434.0
-margin_bottom = 343.0
-window_title = "exporter l'image"
-access = 2
-current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
-current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
-script = ExtResource( 6 )
 
 [node name="Info" type="PanelContainer" parent="."]
 visible = false
@@ -136,27 +108,25 @@ margin_right = 104.0
 margin_bottom = 20.0
 text = "Fermer"
 
-[node name="Open" type="PanelContainer" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -183.0
-margin_top = -147.5
-margin_right = 137.0
-margin_bottom = 152.5
-rect_min_size = Vector2( 320, 300 )
+[node name="Export" type="FileDialog" parent="."]
+margin_left = 11.5
+margin_top = 304.5
+margin_right = 438.5
+margin_bottom = 640.5
+window_title = "exporter l'image"
+access = 2
+current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
+current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FileDialog" type="FileDialog" parent="Open"]
-visible = true
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 313.0
-margin_bottom = 293.0
+[node name="Load" type="FileDialog" parent="."]
+margin_left = 49.0
+margin_top = 332.0
+margin_right = 355.0
+margin_bottom = 618.0
 rect_min_size = Vector2( 200, 100 )
 popup_exclusive = true
 window_title = "Ouvrir un fichier"
@@ -169,27 +139,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save" type="PanelContainer" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -220.5
-margin_top = -150.0
-margin_right = 220.5
-margin_bottom = 150.0
-rect_min_size = Vector2( 320, 300 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FileDialog" type="FileDialog" parent="Save"]
-visible = true
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 434.0
-margin_bottom = 293.0
+[node name="Save" type="FileDialog" parent="."]
+margin_left = 11.5
+margin_top = 329.5
+margin_right = 438.5
+margin_bottom = 615.5
 rect_min_size = Vector2( 200, 100 )
 window_title = "Enregistrer un fichier"
 access = 2
