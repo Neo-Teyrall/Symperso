@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/Onglet/Onglets.gd" type="Script" id=1]
+[ext_resource path="res://src/Interface/Onglet/Onglets.gd" type="Script" id=1]
 [ext_resource path="res://test/fichier.gd" type="Script" id=2]
 [ext_resource path="res://test/header.gd" type="Script" id=3]
-[ext_resource path="res://src/Onglet/ScrollContainer.gd" type="Script" id=4]
+[ext_resource path="res://src/Interface/Onglet/ScrollContainer.gd" type="Script" id=4]
 
 [node name="Tooline" type="PanelContainer"]
 anchor_right = 1.0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scene/Charac.gd" type="Script" id=1]
-[ext_resource path="res://src/sum.gd" type="Script" id=2]
-[ext_resource path="res://font/font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://src/Charac/Catracteristique.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Charac/Charac.gd" type="Script" id=1]
+[ext_resource path="res://src/Charac/sum.gd" type="Script" id=2]
+[ext_resource path="res://src/Charac/Catracteristique.tscn" type="PackedScene" id=3]
+[ext_resource path="res://font/font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://font/label.tres" type="DynamicFont" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
@@ -21,17 +21,17 @@ __meta__ = {
 margin_right = 392.0
 margin_bottom = 30.0
 
-[node name="Agi" parent="Ag_As_Di" instance=ExtResource( 4 )]
+[node name="Agi" parent="Ag_As_Di" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_right = 100.0
 label = "Agilité :"
 
-[node name="Ast" parent="Ag_As_Di" instance=ExtResource( 4 )]
+[node name="Ast" parent="Ag_As_Di" instance=ExtResource( 3 )]
 margin_left = 104.0
 margin_right = 204.0
 label = "Astuce :"
 
-[node name="Dis" parent="Ag_As_Di" instance=ExtResource( 4 )]
+[node name="Dis" parent="Ag_As_Di" instance=ExtResource( 3 )]
 margin_left = 208.0
 margin_right = 327.0
 label = "Discrétion :"
@@ -41,17 +41,17 @@ margin_top = 34.0
 margin_right = 392.0
 margin_bottom = 64.0
 
-[node name="For" parent="Fo_Pe_Pr" instance=ExtResource( 4 )]
+[node name="For" parent="Fo_Pe_Pr" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_right = 100.0
 label = "Force :"
 
-[node name="Per" parent="Fo_Pe_Pr" instance=ExtResource( 4 )]
+[node name="Per" parent="Fo_Pe_Pr" instance=ExtResource( 3 )]
 margin_left = 104.0
 margin_right = 229.0
 label = "Persuasion :"
 
-[node name="Pre" parent="Fo_Pe_Pr" instance=ExtResource( 4 )]
+[node name="Pre" parent="Fo_Pe_Pr" instance=ExtResource( 3 )]
 margin_left = 233.0
 margin_right = 346.0
 label = "Précision :"
@@ -61,12 +61,12 @@ margin_top = 68.0
 margin_right = 392.0
 margin_bottom = 98.0
 
-[node name="Vig" parent="Vi_Vo_Sum" instance=ExtResource( 4 )]
+[node name="Vig" parent="Vi_Vo_Sum" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_right = 112.0
 label = "Vigilence :"
 
-[node name="Vol" parent="Vi_Vo_Sum" instance=ExtResource( 4 )]
+[node name="Vol" parent="Vi_Vo_Sum" instance=ExtResource( 3 )]
 margin_left = 116.0
 margin_right = 219.0
 label = "Volonté :"
@@ -91,7 +91,7 @@ margin_top = 6.0
 margin_right = 307.0
 margin_bottom = 24.0
 custom_styles/normal = SubResource( 1 )
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 0.666667 )
 text = "80"

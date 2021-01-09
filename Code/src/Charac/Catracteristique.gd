@@ -23,7 +23,6 @@ func get_value():
     return value
 
 func set_value(new_value): 
-    print("value set")
     value = new_value
     $val.text = str(value)
     if value == 10 :
@@ -32,15 +31,12 @@ func set_value(new_value):
         $diff.text = "(" + "-" + str(value - 10)+ ")"
     else : 
         $diff.text = "(" + "+" +str((value - 10) * -1)+ ")"
-    print("emited")
     emit_signal("maj")
 
 ############
 
 func _ready() -> void:
-    print("Non")
-    print(get_node(all_info.Sum))
-    self.connect("maj", get_node(all_info.Sum), "maj")
+    self.connect("maj", get_node(all_info.charac_to_Sum), "maj")
 
 
 func _on_Up_pressed() -> void:

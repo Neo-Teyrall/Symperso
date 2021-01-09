@@ -1,7 +1,7 @@
 extends PanelContainer
 tool
 
-
+signal modified
 export var label : String  = "Label" setget set_label
 func set_label(new_str : String) -> void:
     label = new_str
@@ -23,7 +23,9 @@ func set_text(new_text):
     text_edit.text = new_text
 
 func _on_TextEdit_text_changed() -> void:
+    
     count_line_2()
+    emit_signal("modified")
     pass
     
 var cpt = 10 
@@ -76,7 +78,6 @@ func _on_TextEdit_focus_exited() -> void:
 func _on_Timer1_timeout() -> void:
     $HBoxContainer/PanelContainer/TextEdit.rect_min_size.y = space
     $HBoxContainer/PanelContainer/TextEdit.rect_size.y = space
-    print($HBoxContainer/PanelContainer/TextEdit.get_child(1).value)
     $HBoxContainer/PanelContainer/TextEdit.get_child(1).value = 0
     $HBoxContainer/PanelContainer/TextEdit.get_child(1).max_value = 1
     $HBoxContainer/PanelContainer/Timer1.stop()

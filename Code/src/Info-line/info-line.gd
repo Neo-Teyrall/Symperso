@@ -1,6 +1,6 @@
 extends PanelContainer
 tool
-
+signal modified
 export var label : String  = "Label" setget set_label
 
 func set_label(new_str : String) -> void:
@@ -24,3 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
         if event.is_action_pressed("ui_cancel"):
             $HBox/entree.release_focus()
 
+
+func _on_entree_text_changed(new_text: String) -> void:
+    emit_signal("modified")
+    pass # Replace with function body.

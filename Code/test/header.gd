@@ -15,9 +15,6 @@ func _on_Tooline_mouse_entered() -> void:
 
 func _on_Tooline_mouse_exited() -> void:
     if lock1 :
-        print("locked")
         return
-    print("unlocked")
     self.visible = false
-    print("sortie")
     pass # Replace with function body.

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _action(id):
-    var filename = get_node(all_info.main_node).Nom.get_text()
+    var filename = get_node(all_info.main_node).get_current_session().Nom.get_text()
     filename = filename.replace(" ","-")
     if id == 1:
         get_node(all_info.main_node).Export.current_file = (filename + ".png")
@@ -28,7 +28,7 @@ func _action(id):
         _end_id_selected()
     if id == 4: 
         _end_id_selected()
-        get_tree().quit()
+        get_node(all_info.main_node).ask_quit()
 
 
 func _end_id_selected():

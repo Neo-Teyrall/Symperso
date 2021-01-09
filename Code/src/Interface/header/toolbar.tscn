@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://test/header.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/header/Container.gd" type="Script" id=3]
-[ext_resource path="res://src/header/FileDialog.gd" type="Script" id=4]
-[ext_resource path="res://src/header/FileDialogopen.gd" type="Script" id=5]
-[ext_resource path="res://src/header/FileDialogExport.gd" type="Script" id=6]
+[ext_resource path="res://src/Interface/header/Container.gd" type="Script" id=1]
+[ext_resource path="res://src/Interface/header/FileDialogopen.gd" type="Script" id=2]
+[ext_resource path="res://test/header.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Interface/header/FileDialogExport.gd" type="Script" id=4]
+[ext_resource path="res://src/Interface/header/FileDialog.gd" type="Script" id=5]
+[ext_resource path="res://src/Interface/header/Unsaved.gd" type="Script" id=6]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -14,15 +15,16 @@ margin_right = 3.05176e-05
 margin_bottom = 13.0
 rect_min_size = Vector2( 0, 10 )
 mouse_filter = 1
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tooline" parent="." instance=ExtResource( 1 )]
+[node name="Tooline" parent="." instance=ExtResource( 3 )]
 margin_bottom = 72.0
 
 [node name="Info" type="PanelContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -81,7 +83,7 @@ window_title = "exporter l'image"
 access = 2
 current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
 current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,7 +100,7 @@ mode = 0
 access = 2
 current_dir = "/"
 current_path = "/"
-script = ExtResource( 5 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,9 +115,63 @@ window_title = "Enregistrer un fichier"
 access = 2
 current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
 current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Unsaved" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -152.0
+margin_top = -72.5
+margin_right = 165.0
+margin_bottom = 73.5
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Unsaved"]
+margin_left = 6.70984
+margin_top = 6.93036
+margin_right = 307.71
+margin_bottom = 130.93
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unsaved/VBoxContainer"]
+margin_right = 301.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+text = "l'onglet ###### n'est pas sauvegarder vous vouler vraiment ferner sans sauvegarde. les modification serotn perdu."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Unsaved/VBoxContainer"]
+margin_top = 104.0
+margin_right = 301.0
+margin_bottom = 124.0
+
+[node name="Fermer" type="Button" parent="Unsaved/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.662745, 0.164706, 0.164706, 1 )
+margin_right = 144.0
+margin_bottom = 20.0
+text = "fermer quand meme"
+
+[node name="Annuler" type="Button" parent="Unsaved/VBoxContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 208.0
+margin_bottom = 20.0
+text = "annuler"
+
+[node name="Sauvegarder" type="Button" parent="Unsaved/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 0.294118, 0.835294, 0.180392, 1 )
+margin_left = 212.0
+margin_right = 301.0
+margin_bottom = 20.0
+text = "sauvegarder"
 [connection signal="mouse_entered" from="Container" to="Container" method="_on_Container_mouse_entered"]
 [connection signal="mouse_exited" from="Container" to="Container" method="_on_Container_mouse_exited"]

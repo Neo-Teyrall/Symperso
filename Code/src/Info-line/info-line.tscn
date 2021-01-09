@@ -51,3 +51,4 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="text_changed" from="HBox/entree" to="." method="_on_entree_text_changed"]

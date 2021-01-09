@@ -5,7 +5,7 @@ class_name all_info
 ###################  Chemin                               ####################
 ##############################################################################
 const main_node = "/root/Node"
-const Sum = "/root/Node/Global/Panel/H/V/Charac/Vi_Vo_Sum/sum"
+const charac_to_Sum = "../../Vi_Vo_Sum/sum"
 
 
 const window_size = Vector2(450,945)
