@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Onglet/PanelContainer.gd" type="Script" id=2]
+[ext_resource path="res://src/Onglet/main.gd" type="Script" id=3]
+
+[node name="CenterContainer" type="CenterContainer"]
+self_modulate = Color( 0.996078, 1, 0, 1 )
+margin_right = 86.0
+margin_bottom = 20.0
+mouse_filter = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 8.0
+margin_right = 78.0
+margin_bottom = 34.0
+mouse_filter = 1
+script = ExtResource( 2 )
+
+[node name="HBox" type="HBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 63.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PanelContainer/HBox"]
+margin_right = 32.0
+margin_bottom = 20.0
+mouse_filter = 1
+text = "old"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBox"]
+margin_left = 36.0
+margin_right = 56.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="PanelContainer/HBox/CenterContainer"]
+modulate = Color( 1, 0, 0, 1 )
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="mouse_entered" from="PanelContainer" to="PanelContainer" method="_on_PanelContainer_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="PanelContainer" method="_on_PanelContainer_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/HBox/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBox/CenterContainer/Button" to="." method="_on_Delete_pressed"]

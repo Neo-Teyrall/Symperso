@@ -32,15 +32,15 @@ func _action(id):
 
 
 func _end_id_selected():
-    get_parent().get_parent().visible = false
+#    get_parent().get_parent().visible = false
     get_node("../../../").lock1 = false
 
-
-var my_popup = null
+#
+#var my_popup = null
 func _on_Fichier_pressed() -> void:
     get_node("../../../").lock1 = true
-
-
+#
+#
 func popup_mouse_exit():
     get_node("../../../").lock1 = false
-    get_node("../../").visible = false
+    get_node("../../../").visible = false
