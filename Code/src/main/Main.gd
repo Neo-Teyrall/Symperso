@@ -16,6 +16,8 @@ onready var Unsaved = $interface/Unsaved
 
 onready var window_size = all_info.window_size setget set_window_size
 
+signal unfocus
+
 ###############################################################################
 #################                  Onglets                 ####################
 ###############################################################################
@@ -27,6 +29,7 @@ var nb_onglet_create= 0
 
 var Onglet = preload("res://src/Interface/Onglet/onglet.tscn")
 var Session = preload("res://src/main_part/main-part.tscn")
+var last_id_use = -1
 
 func _ready() -> void:
     get_tree().set_auto_accept_quit(false)
@@ -48,20 +51,23 @@ func ask_quit():
 func create_onglet(new_ong_name = null):
     if new_ong_name == null: 
         new_ong_name = "Unamed_" + str(nb_onglet_create)
+    last_id_use += 1
+    
     var new_onglet = Onglet.instance()
     var new_session = Session.instance()
     Onglets.add_child(new_onglet)
     $Gestionnaire.add_child(new_session)
-    new_onglet._build(new_ong_name)
-    new_session._build(new_ong_name)
-    onglets[new_ong_name] = {"onglet" : new_onglet, "session" : new_session}
-    _switch_onglet(new_ong_name)
-#    _load_all_data(default_save)
+    new_onglet._build(new_ong_name,last_id_use)
+    new_session._build(new_ong_name, last_id_use)
+    
+    onglets[last_id_use] = {"onglet" : new_onglet, "session" : new_session}
+    _switch_onglet(last_id_use)
     nb_onglet_create += 1
 
 func ask_delete_onglet(onglet_nom): 
-    if not onglets[onglet_nom]["session"].is_saved:
-        Unsaved.onglet_asked = onglet_nom
+    if not onglets[onglet_nom]["session"].is_saved :
+        Unsaved.set_onglet_asked(onglet_nom)
+        Unsaved.popup()
     else :
         _delete_onglet(onglet_nom)
     pass
@@ -83,17 +89,17 @@ func _delete_onglet(onglet_nom):
 
 func _switch_onglet(new_onglet) -> void:
     if current_onglet != null :
+        print("onglet deselection")
         onglets[current_onglet]["onglet"]._unselect()
         onglets[current_onglet]["session"]._unselect()
     current_onglet = new_onglet
     onglets[current_onglet]["onglet"]._select()
     onglets[current_onglet]["session"]._select()
 
+
 func change_onglet_name(old_name, new_name):
-    onglets[new_name] = onglets[old_name]
-    onglets.erase(old_name)
-    onglets[new_name]["session"].name = new_name
-    onglets[new_name]["onglet"].name = new_name
+    onglets[current_onglet]["session"].name = new_name
+    onglets[current_onglet]["onglet"].name = new_name
 
 func get_current_session(): 
     return onglets[current_onglet]["session"]
@@ -120,6 +126,7 @@ func _export(file_path):
     Export.visible = false
     Tooline.visible = false
     self.window_size.y = onglets[current_onglet]["session"].get_v_scrollbar().max_value
+    emit_signal("unfocus")
     $Timer.start()
 
 
@@ -136,9 +143,18 @@ func _on_Timer_timeout() -> void:
 ###################              Save / Load               ####################
 ###############################################################################
 
+func try_save():
+    if onglets[current_onglet]["session"].save_path == null: 
+        Fichier.ask_save_path()
+        return
+    just_save(onglets[current_onglet]["session"].save_path)
+    
+    
+    pass
+
 func get_new_name_from_file_path(file_path)-> String:
     var new_name = file_path.split("/")
-    new_name = new_name[len(name)]
+    new_name = new_name[len(new_name)-1]
     new_name = new_name.split(".")[0]
     return new_name
     
@@ -150,19 +166,24 @@ func _load(file_path):
     file.close()
     create_onglet(new_name)
     onglets[current_onglet]["session"]._load_all_data(content)
-#    _load_all_data(content)
+    onglets[current_onglet]["session"].save_path = file_path
 
 func save_and_close(onglet):
     _switch_onglet(onglet)
     Save.popup()
     
 
-func _save(file_path): 
+func _save(file_path):
+    
     var new_name = get_new_name_from_file_path(file_path)
+    just_save(file_path)
+    onglets[current_onglet]["session"].save_path = file_path
+    change_onglet_name(current_onglet,new_name)
+
+func just_save(file_path): 
     onglets[current_onglet]["session"].is_saved = true
     var file = File.new()
     file.open(file_path,File.WRITE)
     file.store_string(onglets[current_onglet]["session"]._get_all_data())
     file.close()
-    change_onglet_name(current_onglet,new_name)
-
+    

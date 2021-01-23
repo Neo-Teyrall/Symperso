@@ -17,6 +17,7 @@ func set_text(new_text):
 ######################
 
 func _ready() -> void:
+    get_node(all_info.main_node).connect("unfocus",$HBox/entree,"release_focus")
     pass
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -28,3 +29,4 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_entree_text_changed(new_text: String) -> void:
     emit_signal("modified")
     pass # Replace with function body.
+

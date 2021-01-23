@@ -19,7 +19,8 @@ onready var Tactiques = $Panel/H/V/Tactiques
 onready var Sum = $Panel/H/V/Charac/Vi_Vo_Sum/sum
 
 var is_saved = true
-
+signal has_load_data
+var save_path = null
 func modified(): 
     is_saved = false
 
@@ -41,17 +42,34 @@ func _ready() -> void:
     Ombre.connect("modified",self,"modified")
     Tactiques.connect("modified",self,"modified")
     Sum.connect("modified",self,"modified")
+    self.connect("has_load_data",Traits,"count_line_2")
+    self.connect("has_load_data",Talents,"count_line_2")
+    self.connect("has_load_data",Armes,"count_line_2")
+    self.connect("has_load_data",Armures,"count_line_2")
+    self.connect("has_load_data",Defence,"count_line_2")
+    self.connect("has_load_data",Equipement,"count_line_2")
+    self.connect("has_load_data",Ombre,"count_line_2")
+    self.connect("has_load_data",Tactiques,"count_line_2")
 
+func _set(property: String, value) -> bool:
+    if property == "name" : 
+        name = value
+        return true
+    return true
+    pass
 
-func _build(new_name):
-    self.name = new_name 
+var _id 
+func _build(new_name, new_id):
+    self._id = new_id
+    self.name = str(new_id)
     pass
 
 func _select():
-    self.visible = true
+    visible = true
 
 func _unselect():
-    self.visible = false
+#    print("unselect")
+    visible = false
 
 func _get_all_data() -> String: 
     var str_save = "0.1"
@@ -102,5 +120,6 @@ func _load_all_data(input : String) -> void:
     Equipement.set_text(splited[19])
     Ombre.set_text(splited[20])
     Tactiques.set_text(splited[21])
+    emit_signal("has_load_data")
 
 

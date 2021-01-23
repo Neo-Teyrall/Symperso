@@ -14,6 +14,7 @@ func _ready() -> void:
     text_edit = $HBoxContainer/PanelContainer/TextEdit
     text_edit.wrap_enabled = true
     $HBoxContainer/PanelContainer/TextEdit.get_child(1).max_value = 1
+    get_node(all_info.main_node).connect("unfocus",$HBoxContainer/PanelContainer/TextEdit,"release_focus")
 
 func get_text():
     return text_edit.text

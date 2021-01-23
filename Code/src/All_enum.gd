@@ -32,3 +32,11 @@ var moi : String = "A"
 
 static func merge_path(p1 : String, p2 : String): 
     return p1 + "/" + p2
+
+
+static func set_current_rep(dir :String):
+    var pos = dir.find_last("/")
+    var new_dir = ""
+    for i in range(pos):
+        new_dir += dir[i]
+    return new_dir
