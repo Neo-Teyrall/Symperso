@@ -3,13 +3,13 @@
 [ext_resource path="res://src/Interface/header/Container.gd" type="Script" id=1]
 [ext_resource path="res://src/Interface/FileExploreur/FileDialogopen.gd" type="Script" id=2]
 [ext_resource path="res://test/header.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Interface/FileExploreur/FileDialogExport.gd" type="Script" id=4]
+[ext_resource path="res://src/Interface/header/Export.gd" type="Script" id=4]
 [ext_resource path="res://src/Interface/header/FileDialog.gd" type="Script" id=5]
 [ext_resource path="res://src/Interface/header/Unsaved.gd" type="Script" id=6]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="Container" type="Container" parent="."]
+[node name="Container" type="PanelContainer" parent="."]
 anchor_right = 1.0
 margin_right = 3.05176e-05
 margin_bottom = 13.0
@@ -21,6 +21,7 @@ __meta__ = {
 }
 
 [node name="Tooline" parent="." instance=ExtResource( 3 )]
+self_modulate = Color( 0.980469, 0.714047, 0.337036, 1 )
 margin_bottom = 72.0
 
 [node name="Info" type="PanelContainer" parent="."]
@@ -74,29 +75,7 @@ margin_right = 105.0
 margin_bottom = 20.0
 text = "Fermer"
 
-[node name="Export" type="FileDialog" parent="."]
-visible = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -215.0
-margin_top = -350.0
-margin_right = 215.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 430, 700 )
-window_title = "exporter l'image"
-access = 2
-filters = PoolStringArray( "*.png" )
-current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
-current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Load" type="FileDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -111,15 +90,31 @@ window_title = "Ouvrir un fichier"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.symperso" )
-current_dir = "/"
-current_path = "/"
+current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/Code"
+current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/Code/"
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Export" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -176.0
+margin_top = -330.5
+margin_right = 176.0
+margin_bottom = 330.5
+access = 2
+current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/Code"
+current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/Code/"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Save" type="FileDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -129,11 +124,10 @@ margin_top = -350.0
 margin_right = 215.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 430, 700 )
-window_title = "Enregistrer un fichier"
 access = 2
 filters = PoolStringArray( "*.symperso" )
-current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App"
-current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/"
+current_dir = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/Code"
+current_path = "/home/neo/Bureau/William/Perso/Godot-Workplace/App/Code/"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false

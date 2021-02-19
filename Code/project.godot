@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="App"
 run/main_scene="res://src/main/Main.tscn"
-config/icon="res://source/icon.png"
+config/icon="res://source/icon-symbaroum.png"
 
 [display]
 

@@ -22,6 +22,16 @@ func get_text():
 
 func set_text(new_text):
     text_edit.text = new_text
+    count_line_2()
+
+
+func set_data(data):
+    set_text(data)
+
+
+func get_data():
+    return str(get_text())
+
 
 func _on_TextEdit_text_changed() -> void:
     
@@ -31,10 +41,13 @@ func _on_TextEdit_text_changed() -> void:
     
 var cpt = 10 
 var l = 0
-var space = 19
+var space = 20
+
 
 func count_line_2():
+   # if $HBoxContainer/PanelContainer/TextEdit.get_line_count() < 1:
     $HBoxContainer/PanelContainer/Timer1.start()
+    $HBoxContainer/PanelContainer/Timer2.stop()
    
     $HBoxContainer/PanelContainer/TextEdit.rect_min_size.y = space
     $HBoxContainer/PanelContainer/TextEdit.rect_size.y = space
@@ -70,10 +83,10 @@ func _unhandled_input(event: InputEvent) -> void:
         if event.is_action_pressed("ui_cancel"):
             $HBoxContainer/PanelContainer/TextEdit.release_focus()
 
+
 func _on_TextEdit_focus_exited() -> void:
     if $HBoxContainer/PanelContainer/TextEdit.text == "":
         $HBoxContainer/PanelContainer/TextEdit.text = "Entré..."
-    pass # Replace with function body.
 
 
 func _on_Timer1_timeout() -> void:
@@ -83,7 +96,6 @@ func _on_Timer1_timeout() -> void:
     $HBoxContainer/PanelContainer/TextEdit.get_child(1).max_value = 1
     $HBoxContainer/PanelContainer/Timer1.stop()
     $HBoxContainer/PanelContainer/Timer2.start()
-    pass # Replace with function body.
 
 
 func _on_Timer2_timeout() -> void:
@@ -92,4 +104,3 @@ func _on_Timer2_timeout() -> void:
     $HBoxContainer/PanelContainer/TextEdit.rect_min_size.y = space * nb_line
     $HBoxContainer/PanelContainer/TextEdit.rect_size.y = space * nb_line
     $HBoxContainer/PanelContainer/Timer2.stop()
-    pass # Replace with function body.

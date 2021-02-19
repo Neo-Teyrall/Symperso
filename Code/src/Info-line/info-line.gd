@@ -16,6 +16,12 @@ func set_text(new_text):
 
 ######################
 
+func set_data(data) -> void:
+    set_text(data)
+
+func get_data() -> String : 
+    return str(get_text())
+
 func _ready() -> void:
     get_node(all_info.main_node).connect("unfocus",$HBox/entree,"release_focus")
     pass

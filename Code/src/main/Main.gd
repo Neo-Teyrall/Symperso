@@ -162,10 +162,10 @@ func _load(file_path):
     var new_name = get_new_name_from_file_path(file_path)
     var file = File.new()
     file.open(file_path, File.READ)
-    var content = file.get_as_text()
-    file.close()
     create_onglet(new_name)
-    onglets[current_onglet]["session"]._load_all_data(content)
+    onglets[current_onglet]["session"].load_data(file)
+    file.close()
+    #onglets[current_onglet]["session"]._load_all_data(content)
     onglets[current_onglet]["session"].save_path = file_path
 
 func save_and_close(onglet):
@@ -184,6 +184,7 @@ func just_save(file_path):
     onglets[current_onglet]["session"].is_saved = true
     var file = File.new()
     file.open(file_path,File.WRITE)
-    file.store_string(onglets[current_onglet]["session"]._get_all_data())
+    onglets[current_onglet]["session"].save_data(file)
+#    file.store_string(onglets[current_onglet]["session"]._get_all_data())
     file.close()
     
